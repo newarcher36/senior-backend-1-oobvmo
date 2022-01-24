@@ -1,0 +1,19 @@
+server:
+  port: @user-message-processor-server.port@
+spring:
+  rabbitmq:
+    username: @rabbit.username@
+    password: @rabbit.password@
+    host: @rabbit.hostname@
+    port: @rabbit.port@
+    template:
+      routing-key: @rabbit.user-events.routing-key@
+      exchange: @rabbit.user-events.exchange@
+      default-receive-queue: @rabbit.user-events.queue@
+amqp:
+  dead-letter:
+    exchange: @amqp.dead-letter.exchange@
+    queue: @amqp.dead-letter.queue@
+log:
+  output-directory: /var/log
+  output-file-name: output.log

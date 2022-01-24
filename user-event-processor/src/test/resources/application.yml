@@ -1,0 +1,3 @@
+log:
+  output-directory: .
+  output-file-name: output.log

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+    <packaging>pom</packaging>
+    <modules>
+		<module>user-event-receiver</module>
+		<module>user-event-processor</module>
+	</modules>
+    <parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.6.2</version>
+		<relativePath/>
+	</parent>
+	<groupId>com.konux</groupId>
+	<artifactId>konuxchallenge</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<description>Konux Coding Challenge</description>
+	<properties>
+		<java.version>11</java.version>
+		<spring-boot.version>2.6.2</spring-boot.version>
+		<server.servlet.context-path>/konux/api</server.servlet.context-path>
+		<user-message-receiver-server.port>8080</user-message-receiver-server.port>
+		<user-message-processor-server.port>8081</user-message-processor-server.port>
+		<rabbit.hostname>rabbitmq</rabbit.hostname>
+		<rabbit.port>5672</rabbit.port>
+		<rabbit.username>user</rabbit.username>
+		<rabbit.password>pass</rabbit.password>
+		<rabbit.user-events.queue>user_events</rabbit.user-events.queue>
+		<rabbit.user-events.exchange>user_events_exchange</rabbit.user-events.exchange>
+		<rabbit.user-events.routing-key>user_events_routing_key</rabbit.user-events.routing-key>
+		<rabbit.retry.enabled>true</rabbit.retry.enabled>
+		<rabbit.max-attempts>3</rabbit.max-attempts>
+		<rabbit.max-interval>10000</rabbit.max-interval>
+		<amqp.dead-letter.exchange>user_events_exchange.dlx</amqp.dead-letter.exchange>
+		<amqp.dead-letter.queue>user_events.dlq</amqp.dead-letter.queue>
+	</properties>
+</project>
